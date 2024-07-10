@@ -1,0 +1,43 @@
+{
+    "version": "1.0.0",
+    "name": "duo-solution-parser",
+    "description": "",
+    "scripts": {
+        "start": "npm run dev",
+        "dev": "npm run typecheck && npm run parcel:watch",
+        "build": "npm run typecheck && npm run parcel:build",
+        "parcel:watch": "rm -rf docs && parcel src/index.html  --dist-dir docs",
+        "parcel:build": "rm -rf docs && parcel build src/index.html --no-source-maps --dist-dir docs",
+        "typecheck": "tsc --noEmit"
+    },
+    "alias": {
+        "react": "preact/compat",
+        "react-dom": "preact/compat"
+    },
+    "browserslist": [
+        "last 2 chrome versions",
+        "last 2 firefox versions"
+    ],
+    "devDependencies": {
+        "@babel/core": "^7.12.0",
+        "@fullhuman/postcss-purgecss": "^6.0.0",
+        "autoprefixer": "^10.4.0",
+        "parcel": "^2.12.0",
+        "postcss": "^8.4.39",
+        "tailwindcss": "^3.4.4",
+        "typescript": "^5.5.3"
+    },
+    "dependencies": {
+        "@heroicons/react": "^2.1.4",
+        "babel-plugin-macros": "^3.1.0",
+        "duo-toolbox": "git+https://github.com/blmage/duo-toolbox.git#semver:^3.9.0",
+        "moize": "^6.1.6",
+        "param.macro": "^3.2.1",
+        "preact": "^10.22.1",
+        "react-use-clipboard": "^1.0.9",
+        "usehooks-ts": "^3.1.0"
+    },
+    "@parcel/resolver-default": {
+        "packageExports": true
+    }
+}
