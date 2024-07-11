@@ -191,7 +191,7 @@ const getParsedSolutions = (solutions: string[], locale: string): Solution[] => 
             choices = choices.map(choice => `${choice}${common}`);
           }
 
-          const subChoices = subset[1].split(/\//);
+          const subChoices = subset[1].split(/\s*\/\s*/);
           choices = subChoices.flatMap(sub => choices.map(choice => `${choice}${sub}`));
           subIndex = (subset.index ?? 0) + subset[0].length;
         }
@@ -209,7 +209,7 @@ const getParsedSolutions = (solutions: string[], locale: string): Solution[] => 
         choices.sort((x, y) => compareStringsCi(x, y, locale));
         choiceGroups = groupBy(choices.map(prepareTokens), it.length);
       } else {
-        choiceGroups = groupBy(choiceSet[1].split(/\//).map(prepareTokens), it.length);
+        choiceGroups = groupBy(choiceSet[1].split(/\s*\/\s*/).map(prepareTokens), it.length);
       }
 
       const branches = [] as PatternBranch[];
